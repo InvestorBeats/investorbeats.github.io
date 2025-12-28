@@ -5,94 +5,196 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>InvestorBeats</title>
 
-  <meta name="description" content="InvestorBeats — Live market data, global sessions, and beats." />
-  <meta name="theme-color" content="#000000" />
-
   <style>
-    :root {
-      --bg: #000000;
-      --fg: #e5e7eb;
-      --accent: #00ff88;
-      --muted: #7a8590;
+    :root{
+      --bg:#000;
+      --fg:#e8eaed;
+      --muted:#9aa0a6;
+
+      --green:#00ff88;
+      --red:#ff3b3b;
+
+      --btn1:#7c3aed;         /* purple */
+      --btn1b:#5b21b6;
+
+      --btn2a:#f59e0b;        /* orange */
+      --btn2b:#ec4899;        /* pink */
+      --btn2c:#7c3aed;        /* purple */
     }
 
-    * { box-sizing: border-box; }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 700px at 50% 45%, rgba(255,255,255,.10), rgba(0,0,0,1) 55%) , #000;
+      color:var(--fg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans";
+      overflow:hidden;
     }
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px 18px 70px;
     }
 
-    .container {
-      text-align: center;
-      padding: 24px;
+    .logo{
+      width:min(520px, 82vw);
+      height:auto;
+      display:block;
+      margin:0 auto 18px;
+      filter: drop-shadow(0 18px 55px rgba(0,0,0,.55));
+      image-rendering:auto;
     }
 
-    .logo {
-      width: auto;
-      height: 72px;
-      max-width: 90vw;
-      display: block;
-      margin: 0 auto 18px auto;
-      filter: drop-shadow(0 0 12px rgba(0,255,136,0.25));
+    .eq{
+      width:110px;
+      height:30px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin:10px auto 14px;
+      filter: drop-shadow(0 8px 18px rgba(0,255,136,.18));
     }
 
-    .tagline {
-      font-size: 16px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .eq span{
+      width:12px;
+      border-radius:999px;
+      background: linear-gradient(180deg, var(--green), rgba(0,255,136,.25));
+      height:10px;
+      transform-origin: bottom;
+      animation: bounce 1.25s ease-in-out infinite;
+      position:relative;
+    }
+    .eq span::after{
+      content:"";
+      position:absolute;
+      left:0; right:0;
+      bottom:0;
+      height:6px;
+      border-radius:999px;
+      background: rgba(255,59,59,.85);
+      filter: blur(.2px);
+      opacity:.85;
+    }
+    .eq span:nth-child(1){animation-delay:0s}
+    .eq span:nth-child(2){animation-delay:.12s}
+    .eq span:nth-child(3){animation-delay:.24s}
+    .eq span:nth-child(4){animation-delay:.36s}
+    .eq span:nth-child(5){animation-delay:.48s}
+
+    @keyframes bounce{
+      0%,100%{transform:scaleY(.55)}
+      50%{transform:scaleY(1.9)}
     }
 
-    .divider {
-      width: 120px;
-      height: 2px;
-      margin: 20px auto;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0.6;
+    .tag{
+      color:var(--muted);
+      font-size:20px;
+      letter-spacing:.01em;
+      margin:0 0 22px;
     }
 
-    footer {
-      position: fixed;
-      bottom: 14px;
-      width: 100%;
-      text-align: center;
-      font-size: 12px;
-      color: var(--muted);
-      opacity: 0.6;
+    .buttons{
+      display:flex;
+      gap:18px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      padding:14px 22px;
+      border-radius:14px;
+      color:white;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.01em;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 18px 45px rgba(0,0,0,.45);
+      transition: transform .12s ease, filter .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform:translateY(-1px); filter:brightness(1.03)}
+    .btn:active{transform:translateY(0px); filter:brightness(.98)}
+
+    .btn.twitch{
+      background: linear-gradient(180deg, rgba(124,58,237,1), rgba(91,33,182,1));
+    }
+
+    .btn.ig{
+      background: linear-gradient(90deg, var(--btn2a), var(--btn2b), var(--btn2c));
+    }
+
+    .icon{
+      width:22px;
+      height:22px;
+      display:inline-block;
+    }
+    .icon svg{width:22px;height:22px;display:block}
+
+    footer{
+      position:fixed;
+      left:0; right:0;
+      bottom:18px;
+      text-align:center;
+      color:rgba(255,255,255,.35);
+      font-size:14px;
+      letter-spacing:.02em;
+    }
+
+    @media (max-width:520px){
+      .tag{font-size:18px}
+      footer{font-size:13px}
     }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <main>
+      <!-- NEW LOGO (keep this filename next to index.html, or update the src path) -->
+      <img class="logo" src="IB Logo With Words Transparent.png" alt="InvestorBeats Logo" />
 
-  <main class="container">
-    <!-- Logo swapped only -->
-    <img
-      src="IB Logo With Words Transparent.png"
-      alt="InvestorBeats Logo"
-      class="logo"
-    />
+      <div class="eq" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
 
-    <div class="divider"></div>
+      <p class="tag">Chill lofi beats + live investing data</p>
 
-    <div class="tagline">
-      Live Markets • Global Sessions • Beats
-    </div>
-  </main>
+      <div class="buttons">
+        <!-- IMPORTANT: keep your existing links here (edit only href if needed) -->
+        <a class="btn twitch" href="https://www.twitch.tv/investorbeats" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <!-- simple chat glyph (no external assets) -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 4h16v11H13l-4 3v-3H5V4Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M10 7v4M15 7v4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          Watch on Twitch
+        </a>
 
-  <footer>
-    © InvestorBeats
-  </footer>
+        <a class="btn ig" href="https://www.instagram.com/investorbeats" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <!-- simple camera glyph (no external assets) -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 7h10a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z" stroke="white" stroke-width="2"/>
+              <path d="M12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="white" stroke-width="2"/>
+              <path d="M17.5 9.2h.01" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </span>
+          Follow on Instagram
+        </a>
+      </div>
+    </main>
+  </div>
 
+  <footer>© 2025 InvestorBeats</footer>
 </body>
 </html>
