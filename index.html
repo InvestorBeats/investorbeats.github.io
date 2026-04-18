@@ -20,6 +20,8 @@
       --btn2a:#f59e0b;
       --btn2b:#ec4899;
       --btn2c:#7c3aed;
+
+      --btnX:#000000;
     }
 
     *{box-sizing:border-box}
@@ -111,8 +113,10 @@
     .btn{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:12px;
       padding:14px 22px;
+      min-width:230px;
       border-radius:14px;
       color:white;
       text-decoration:none;
@@ -128,6 +132,14 @@
 
     .btn.twitch{
       background: linear-gradient(180deg, rgba(124,58,237,1), rgba(91,33,182,1));
+    }
+
+    .btn.x{
+      background: var(--btnX);
+      border:1px solid rgba(255,255,255,.22);
+    }
+    .btn.x:hover{
+      filter:brightness(1.15);
     }
 
     .btn.ig{
@@ -181,6 +193,15 @@
             </svg>
           </span>
           Watch on Twitch
+        </a>
+
+        <a class="btn x" href="https://x.com/InvestorBeats" target="_blank" rel="noopener">
+          <span class="icon x-icon" aria-hidden="true">
+            <svg viewBox="2 2 20 20" fill="white">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </span>
+          Follow on X
         </a>
 
         <a class="btn ig" href="https://www.instagram.com/investorbeats" target="_blank" rel="noopener">
