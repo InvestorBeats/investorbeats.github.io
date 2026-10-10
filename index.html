@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>InvestorBeats — 24/7 Live Market Data & Chill Beats</title>
-<meta name="description" content="InvestorBeats: 24/7 live market data for stocks, crypto and ETFs, streamed with chill beats. Watch live on Twitch." />
+<title>InvestorBeats — Live Market Data & Lo-fi Beats</title>
+<meta name="description" content="InvestorBeats: live market data for stocks, crypto and ETFs, streamed with lo-fi beats. Watch live on Twitch." />
 
 <!-- Open Graph / social share -->
-<meta property="og:title" content="InvestorBeats — 24/7 Live Market Data & Chill Beats" />
-<meta property="og:description" content="Stocks · Crypto · ETFs · Chill Beats. Streaming live 24/7 on Twitch." />
+<meta property="og:title" content="InvestorBeats — Live Market Data & Lo-fi Beats" />
+<meta property="og:description" content="Stocks · Crypto · ETFs · Lo-fi Beats. Streaming live on Twitch." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://investorbeats.com/" />
 <meta property="og:image" content="https://investorbeats.com/ib-logo.png" />
@@ -67,6 +67,18 @@
   .btn-primary:hover{background:var(--purple-2);transform:translateY(-2px);box-shadow:0 12px 38px var(--purple-glow)}
   .btn-ghost{background:rgba(255,255,255,.04);border-color:var(--line-2);color:var(--text)}
   .btn-ghost:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}
+  .btn-ig{
+    color:#fff;
+    background:linear-gradient(72deg,#f9ce34 0%,#ee2a7b 50%,#6228d7 100%);
+    /* .btn has a 1px transparent border. A gradient positions against the
+       padding box but paints across the border box, so the border strip shows
+       a repeat of the first stop — a yellow sliver on the right edge. Anchor
+       the gradient to the border box and stop it tiling. */
+    background-origin:border-box;
+    background-repeat:no-repeat;
+    box-shadow:0 8px 30px rgba(238,42,123,.38);
+  }
+  .btn-ig:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 12px 38px rgba(238,42,123,.48)}
   .btn svg{width:18px;height:18px;fill:currentColor}
 
   /* Nav */
@@ -97,7 +109,13 @@
   .hero h1{font-size:clamp(32px,4.6vw,50px);font-weight:700;margin:16px 0 14px}
   .hero h1 .grad{background:linear-gradient(100deg,#00ff88,#00ff88);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .hero p.sub{font-size:17px;color:var(--muted);max-width:46ch;margin-bottom:24px}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+  /* Three pills share one ~500px grid column at desktop widths — trim the box
+     model so the row fits without wrapping, then restore full size on mobile
+     where the hero column goes full-bleed. */
+  .hero-cta .btn{padding:12px 16px;font-size:14px;gap:8px}
+  .hero-cta .btn svg{width:17px;height:17px}
+  @media(max-width:940px){.hero-cta{gap:14px}.hero-cta .btn{padding:13px 22px;font-size:15px;gap:9px}}
   .hero-tags{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
   .htag{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border-radius:999px;
     background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.28);
@@ -182,6 +200,8 @@
   .socials a:hover{color:#fff;border-color:var(--green);background:rgba(0,255,136,.14);transform:translateY(-2px)}
   .socials a svg{width:20px;height:20px;fill:currentColor}
   .foot-copy{color:var(--muted);font-size:13px}
+  .disclaimer{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);
+    text-align:center;color:var(--muted);font-size:12.5px;letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -218,9 +238,16 @@
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://www.twitch.tv/investorbeats" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M4 2 2.5 6v14h5v3h3l3-3h4L22 15V2H4Zm16 12-3 3h-5l-3 3v-3H5.5V4H20v10Z"/><path d="M15 7h2v6h-2zM10 7h2v6h-2z"/></svg>
-          Watch Live Stream
+          Watch Live
         </a>
-        <a class="btn btn-ghost" href="https://x.com/InvestorBeats" target="_blank" rel="noopener">Follow on X</a>
+        <a class="btn btn-ghost" href="https://x.com/InvestorBeats" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8.1-9.3L1 2h7l4.8 6.3L18.9 2Zm-2.4 18h1.9L7.6 3.9H5.6L16.5 20Z"/></svg>
+          Follow on X
+        </a>
+        <a class="btn btn-ig" href="https://www.instagram.com/investorbeats" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.1 1.1 0 1.8.2 2.4.5.7.2 1.2.5 1.7 1s.8 1 1 1.7c.3.6.5 1.3.5 2.4.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1.1-.2 1.8-.5 2.4-.2.7-.5 1.2-1 1.7s-1 .8-1.7 1c-.6.3-1.3.5-2.4.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1.1 0-1.8-.2-2.4-.5-.7-.2-1.2-.5-1.7-1s-.8-1-1-1.7c-.3-.6-.5-1.3-.5-2.4C2 15 2 14.7 2 12s0-3 .1-4.1c0-1.1.2-1.8.5-2.4.2-.7.5-1.2 1-1.7s1-.8 1.7-1c.6-.3 1.3-.5 2.4-.5C8.8 2 9.1 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.3-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/></svg>
+          Follow on Instagram
+        </a>
       </div>
     </div>
 
@@ -259,12 +286,12 @@
     <div class="cards">
       <div class="card">
         <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
-        <h3>24/7 Live Market Data</h3>
+        <h3>Live Market Data</h3>
         <p>Real-time price action across stocks, crypto, and ETFs on screen around the clock — pre-market, cash session, after hours, and overnight.</p>
       </div>
       <div class="card">
         <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-        <h3>Chill Beats, All Day</h3>
+        <h3>Lo-fi Beats, All Day</h3>
         <p>A curated lo-fi and downtempo soundtrack that keeps the desk calm while the market does its thing. Focus music built for screen time.</p>
       </div>
       <div class="card">
@@ -279,38 +306,48 @@
 <!-- CTA BAND -->
 <section style="padding-top:0" id="follow">
   <div class="cta-band">
-    <span class="live-badge" style="margin-bottom:18px"><span class="pulse"></span>LIVE 24/7</span>
+    <span class="live-badge" style="margin-bottom:18px"><span class="pulse"></span>LIVE</span>
     <h2>Follow InvestorBeats</h2>
     <div class="row" style="margin-top:26px">
       <a class="btn btn-primary" href="https://www.twitch.tv/investorbeats" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M4 2 2.5 6v14h5v3h3l3-3h4L22 15V2H4Zm16 12-3 3h-5l-3 3v-3H5.5V4H20v10Z"/><path d="M15 7h2v6h-2zM10 7h2v6h-2z"/></svg>
         Follow on Twitch
       </a>
-      <a class="btn btn-ghost" href="https://x.com/InvestorBeats" target="_blank" rel="noopener">Follow on X</a>
+      <a class="btn btn-ghost" href="https://x.com/InvestorBeats" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8.1-9.3L1 2h7l4.8 6.3L18.9 2Zm-2.4 18h1.9L7.6 3.9H5.6L16.5 20Z"/></svg>
+        Follow on X
+      </a>
+      <a class="btn btn-ig" href="https://www.instagram.com/investorbeats" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.1 1.1 0 1.8.2 2.4.5.7.2 1.2.5 1.7 1s.8 1 1 1.7c.3.6.5 1.3.5 2.4.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1.1-.2 1.8-.5 2.4-.2.7-.5 1.2-1 1.7s-1 .8-1.7 1c-.6.3-1.3.5-2.4.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1.1 0-1.8-.2-2.4-.5-.7-.2-1.2-.5-1.7-1s-.8-1-1-1.7c-.3-.6-.5-1.3-.5-2.4C2 15 2 14.7 2 12s0-3 .1-4.1c0-1.1.2-1.8.5-2.4.2-.7.5-1.2 1-1.7s1-.8 1.7-1c.6-.3 1.3-.5 2.4-.5C8.8 2 9.1 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.3-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/></svg>
+        Follow on Instagram
+      </a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="wrap foot-inner">
-    <a class="logo" href="#top">
-      <img src="ib-logo.png" alt="InvestorBeats" style="height:78px"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='inline'" />
-      <span style="display:none;font-size:18px">Investor<span class="accent">Beats</span></span>
-    </a>
-    <div class="socials">
-      <a href="https://www.twitch.tv/investorbeats" target="_blank" rel="noopener" aria-label="Twitch">
-        <svg viewBox="0 0 24 24"><path d="M4 2 2.5 6v14h5v3h3l3-3h4L22 15V2H4Zm16 12-3 3h-5l-3 3v-3H5.5V4H20v10Z"/><path d="M15 7h2v6h-2zM10 7h2v6h-2z"/></svg>
+  <div class="wrap">
+    <div class="foot-inner">
+      <a class="logo" href="#top">
+        <img src="ib-logo.png" alt="InvestorBeats" style="height:78px"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='inline'" />
+        <span style="display:none;font-size:18px">Investor<span class="accent">Beats</span></span>
       </a>
-      <a href="https://x.com/InvestorBeats" target="_blank" rel="noopener" aria-label="X">
-        <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8.1-9.3L1 2h7l4.8 6.3L18.9 2Zm-2.4 18h1.9L7.6 3.9H5.6L16.5 20Z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/investorbeats" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.1 1.1 0 1.8.2 2.4.5.7.2 1.2.5 1.7 1s.8 1 1 1.7c.3.6.5 1.3.5 2.4.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1.1-.2 1.8-.5 2.4-.2.7-.5 1.2-1 1.7s-1 .8-1.7 1c-.6.3-1.3.5-2.4.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1.1 0-1.8-.2-2.4-.5-.7-.2-1.2-.5-1.7-1s-.8-1-1-1.7c-.3-.6-.5-1.3-.5-2.4C2 15 2 14.7 2 12s0-3 .1-4.1c0-1.1.2-1.8.5-2.4.2-.7.5-1.2 1-1.7s1-.8 1.7-1c.6-.3 1.3-.5 2.4-.5C8.8 2 9.1 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.3-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/></svg>
-      </a>
+      <div class="socials">
+        <a href="https://www.twitch.tv/investorbeats" target="_blank" rel="noopener" aria-label="Twitch">
+          <svg viewBox="0 0 24 24"><path d="M4 2 2.5 6v14h5v3h3l3-3h4L22 15V2H4Zm16 12-3 3h-5l-3 3v-3H5.5V4H20v10Z"/><path d="M15 7h2v6h-2zM10 7h2v6h-2z"/></svg>
+        </a>
+        <a href="https://x.com/InvestorBeats" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8.1-9.3L1 2h7l4.8 6.3L18.9 2Zm-2.4 18h1.9L7.6 3.9H5.6L16.5 20Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/investorbeats" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.1 1.1 0 1.8.2 2.4.5.7.2 1.2.5 1.7 1s.8 1 1 1.7c.3.6.5 1.3.5 2.4.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1.1-.2 1.8-.5 2.4-.2.7-.5 1.2-1 1.7s-1 .8-1.7 1c-.6.3-1.3.5-2.4.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1.1 0-1.8-.2-2.4-.5-.7-.2-1.2-.5-1.7-1s-.8-1-1-1.7c-.3-.6-.5-1.3-.5-2.4C2 15 2 14.7 2 12s0-3 .1-4.1c0-1.1.2-1.8.5-2.4.2-.7.5-1.2 1-1.7s1-.8 1.7-1c.6-.3 1.3-.5 2.4-.5C8.8 2 9.1 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.3-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/></svg>
+        </a>
+      </div>
+      <div class="foot-copy">© 2026 InvestorBeats · Live market data &amp; lo-fi beats</div>
     </div>
-    <div class="foot-copy">© 2026 InvestorBeats · Live market data & chill beats</div>
+    <div class="disclaimer">Educational content only — not financial advice.</div>
   </div>
 </footer>
 
@@ -344,4 +381,3 @@
 </script>
 </body>
 </html>
-                                                                   
